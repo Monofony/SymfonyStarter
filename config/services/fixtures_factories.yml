@@ -12,6 +12,12 @@ services:
             - "@sylius.factory.customer"
         public: true
 
+    app.fixture.example_factory.article:
+        class: App\Fixture\Factory\ArticleExampleFactory
+        arguments:
+            - "@app.factory.article"
+        public: true
+
     app.fixture.example_factory.oauth_client:
         class: App\Fixture\Factory\OAuthClientExampleFactory
         arguments:

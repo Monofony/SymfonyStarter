@@ -7,6 +7,9 @@ app_backend_dashboard:
 sylius_backend_admin_user:
     resource: "backend/admin_user.yml"
 
+app_backend_article:
+    resource: "backend/article.yml"
+
 sylius_backend_customer:
     resource: "backend/customer.yml"
 

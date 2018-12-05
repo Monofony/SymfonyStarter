@@ -15,6 +15,14 @@ services:
         tags:
             - { name: sylius_fixtures.fixture }
 
+    app.fixture.article:
+        class: App\Fixture\ArticleFixture
+        arguments:
+            - "@app.manager.article"
+            - "@app.fixture.example_factory.article"
+        tags:
+            - { name: sylius_fixtures.fixture }
+
     app.fixture.oauth_client:
         class: App\Fixture\OAuthClientFixture
         arguments:

@@ -1,12 +1,16 @@
 app:
     ui:
         addresses: Adresses
+        articles: Articles
         create_user: Créer un utilisateur
         edit_address: Modifier l'adresse
+        edit_article: Modifier l'article
         forgotten_password: Mot de passe oublié
         legal_notices: Mentions légales
         manage_addresses: Gérer les adresses
+        manage_articles: Gérer les articles
         new_address: Nouvelle adresse
+        new_article: Nouvel article
         overview_of_your_website: Aperçu de votre site web
         validate: Valider
     text:
