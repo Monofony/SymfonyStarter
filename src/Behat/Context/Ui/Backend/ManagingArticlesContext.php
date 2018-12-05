@@ -79,7 +79,7 @@ final class ManagingArticlesContext implements Context
     /**
      * @When I delete article with title :title
      */
-    public function iDeleteAdministratorWithEmail($title)
+    public function iDeleteArticleWithTitle($title)
     {
         $this->indexPage->deleteResourceOnPage(['title' => $title]);
     }
