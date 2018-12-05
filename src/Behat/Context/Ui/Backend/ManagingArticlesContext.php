@@ -14,23 +14,40 @@ declare(strict_types=1);
 namespace App\Behat\Context\Ui\Backend;
 
 use App\Behat\Page\Backend\Article\IndexPage;
+use App\Behat\Page\Backend\Article\CreatePage;
 use Behat\Behat\Context\Context;
 use Webmozart\Assert\Assert;
 
 final class ManagingArticlesContext implements Context
 {
     /**
+     * @var CreatePage
+     */
+    private $createPage;
+
+    /**
      * @var IndexPage
      */
     private $indexPage;
 
     /**
-     * @param IndexPage $indexPage
+     * @param CreatePage $createPage
+     * @param IndexPage  $indexPage
      */
     public function __construct(
+        CreatePage $createPage,
         IndexPage $indexPage
     ) {
+        $this->createPage = $createPage;
         $this->indexPage = $indexPage;
+    }
+
+    /**
+     * @Given I want to create a new article
+     */
+    public function iWantToCreateANewArticle()
+    {
+        $this->createPage->open();
     }
 
     /**
@@ -39,6 +56,24 @@ final class ManagingArticlesContext implements Context
     public function iWantToBrowseArticles()
     {
         $this->indexPage->open();
+    }
+
+    /**
+     * @When I specify its title as :title
+     * @When I do not specify its title
+     */
+    public function iSpecifyItsEmailAs($title = null)
+    {
+        $this->createPage->specifyTitle($title);
+    }
+
+    /**
+     * @When I add it
+     * @When I try to add it
+     */
+    public function iAddIt()
+    {
+        $this->createPage->create();
     }
 
     /**
@@ -51,6 +86,7 @@ final class ManagingArticlesContext implements Context
 
     /**
      * @Then I should (also )see the article :title in the list
+     * @Then the article :title should appear in the website
      */
     public function theArticleShouldAppearInTheWebsite($title)
     {

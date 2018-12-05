@@ -21,6 +21,7 @@ services:
     app.behat.context.ui.backend.managing_articles:
         class: App\Behat\Context\Ui\Backend\ManagingArticlesContext
         arguments:
+            - "@app.behat.page.backend.article.create"
             - "@app.behat.page.backend.article.index"
         tags:
             - { name: fob.context_service }
