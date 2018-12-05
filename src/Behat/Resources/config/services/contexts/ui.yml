@@ -18,6 +18,13 @@ services:
         tags:
             - { name: fob.context_service }
 
+    app.behat.context.ui.backend.managing_articles:
+        class: App\Behat\Context\Ui\Backend\ManagingArticlesContext
+        arguments:
+            - "@app.behat.page.backend.article.index"
+        tags:
+            - { name: fob.context_service }
+
     app.behat.context.ui.backend.managing_customers:
         class: App\Behat\Context\Ui\Backend\ManagingCustomersContext
         arguments:

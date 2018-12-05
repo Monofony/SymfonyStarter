@@ -27,6 +27,15 @@ services:
             tags:
                 - { name: fob.context_service }
 
+        app.behat.context.setup.article:
+            class: App\Behat\Context\Setup\ArticleContext
+            arguments:
+                - "@app.behat.shared_storage"
+                - "@__symfony__.app.fixture.example_factory.article"
+                - "@__symfony__.app.repository.article"
+            tags:
+                - { name: fob.context_service }
+
         app.behat.context.setup.customer:
             class: App\Behat\Context\Setup\CustomerContext
             arguments:

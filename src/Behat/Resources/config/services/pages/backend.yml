@@ -1,5 +1,6 @@
 imports:
     - { resource: backend/administrator.yml }
+    - { resource: backend/article.yml }
     - { resource: backend/customer.yml }
 
 # Learn more about services, parameters and containers at
