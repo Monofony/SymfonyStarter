@@ -77,6 +77,14 @@ final class ManagingArticlesContext implements Context
     }
 
     /**
+     * @When I delete article with title :title
+     */
+    public function iDeleteAdministratorWithEmail($title)
+    {
+        $this->indexPage->deleteResourceOnPage(['title' => $title]);
+    }
+
+    /**
      * @Then /^there should be (\d+) articles in the list$/
      */
     public function iShouldSeeArticlesInTheList(int $number = 1): void
@@ -93,5 +101,13 @@ final class ManagingArticlesContext implements Context
         $this->indexPage->open();
 
         Assert::true($this->indexPage->isSingleResourceOnPage(['title' => $title]));
+    }
+
+    /**
+     * @Then there should not be :title article anymore
+     */
+    public function thereShouldBeNoAnymore($title)
+    {
+        Assert::false($this->indexPage->isSingleResourceOnPage(['title' => $title]));
     }
 }
