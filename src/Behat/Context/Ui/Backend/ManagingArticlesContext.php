@@ -15,6 +15,8 @@ namespace App\Behat\Context\Ui\Backend;
 
 use App\Behat\Page\Backend\Article\IndexPage;
 use App\Behat\Page\Backend\Article\CreatePage;
+use App\Behat\Page\Backend\Article\UpdatePage;
+use App\Entity\Article;
 use Behat\Behat\Context\Context;
 use Webmozart\Assert\Assert;
 
@@ -31,15 +33,23 @@ final class ManagingArticlesContext implements Context
     private $indexPage;
 
     /**
+     * @var UpdatePage
+     */
+    private $updatePage;
+
+    /**
      * @param CreatePage $createPage
      * @param IndexPage  $indexPage
+     * @pram UpdatePage $updatePage
      */
     public function __construct(
         CreatePage $createPage,
-        IndexPage $indexPage
+        IndexPage $indexPage,
+        UpdatePage $updatePage
     ) {
         $this->createPage = $createPage;
         $this->indexPage = $indexPage;
+        $this->updatePage = $updatePage;
     }
 
     /**
@@ -59,6 +69,14 @@ final class ManagingArticlesContext implements Context
     }
 
     /**
+     * @Given I want to modify the :article article
+     */
+    public function iWantToModifyAnArticle(Article $article)
+    {
+        $this->updatePage->open(['id' => $article->getId()]);
+    }
+
+    /**
      * @When I specify its title as :title
      * @When I do not specify its title
      */
@@ -68,12 +86,28 @@ final class ManagingArticlesContext implements Context
     }
 
     /**
+     * @When I rename it to :title
+     */
+    public function iChangeItsTitleAs($title = null)
+    {
+        $this->updatePage->changeTitle($title);
+    }
+
+    /**
      * @When I add it
      * @When I try to add it
      */
     public function iAddIt()
     {
         $this->createPage->create();
+    }
+
+    /**
+     * @When I save my changes
+     */
+    public function iSaveMyChanges()
+    {
+        $this->updatePage->saveChanges();
     }
 
     /**

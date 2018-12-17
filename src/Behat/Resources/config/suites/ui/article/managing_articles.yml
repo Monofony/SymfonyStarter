@@ -8,6 +8,7 @@ default:
                 - app.behat.context.setup.customer
                 - app.behat.context.setup.admin_security
 
+                - app.behat.context.transform.article
                 - app.behat.context.transform.customer
                 - app.behat.context.transform.shared_storage
 
