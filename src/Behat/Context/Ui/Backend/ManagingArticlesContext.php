@@ -144,4 +144,22 @@ final class ManagingArticlesContext implements Context
     {
         Assert::false($this->indexPage->isSingleResourceOnPage(['title' => $title]));
     }
+
+    /**
+     * @Then I should be notified that the title is required
+     */
+    public function iShouldBeNotifiedThatTitleIsRequired()
+    {
+        Assert::same($this->createPage->getValidationMessage('title'), 'This value should not be blank.');
+    }
+
+    /**
+     * @Then this article should not be added
+     */
+    public function thisArticleShouldNotBeAdded()
+    {
+        $this->indexPage->open();
+
+        Assert::same($this->indexPage->countItems(), 0);
+    }
 }
