@@ -23,6 +23,7 @@ services:
         arguments:
             - "@app.behat.page.backend.article.create"
             - "@app.behat.page.backend.article.index"
+            - "@app.behat.page.backend.article.update"
         tags:
             - { name: fob.context_service }
 
