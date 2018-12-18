@@ -1,7 +1,7 @@
 AppName Documentation
 =====================
 
-.. image:: /_images/logo.png
+.. image:: /_images/logo_big.png
    :alt:   AppName Welcome Page
 
 `AppName`_ is a project based on
@@ -51,6 +51,18 @@ Deployment
 
 .. include:: /deployment/map.rst.inc
 
+The Cookbook
+------------
+
+:doc:`The Cookbook </cookbook/index>` is a collection of specific solutions for specific needs.
+
+.. toctree::
+    :hidden:
+
+    cookbook/index
+
+.. include:: /cookbook/map.rst.inc
+
 The Behat Guide
 ---------------
 
@@ -62,17 +74,6 @@ In :doc:`the Behat Guide </behat/index>` you will learn how to write clean and r
     behat/index
 
 .. include:: /behat/map.rst.inc
-
-
-Cookbook
---------
-
-.. toctree::
-    :hidden:
-
-    cookbook/index
-
-.. include:: /cookbook/map.rst.inc
 
 
 .. _AppName: http://www.mobizel.com
