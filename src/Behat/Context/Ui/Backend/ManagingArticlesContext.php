@@ -61,6 +61,7 @@ final class ManagingArticlesContext implements Context
     }
 
     /**
+     * @When I browse articles
      * @When I want to browse articles
      */
     public function iWantToBrowseArticles()
@@ -119,6 +120,23 @@ final class ManagingArticlesContext implements Context
     }
 
     /**
+     * @When I (also) check the :title article
+     */
+    public function iCheckTheArticle(string $title): void
+    {
+        $this->indexPage->checkResourceOnPage(['title' => $title]);
+    }
+
+    /**
+     * @When I delete them
+     */
+    public function iDeleteThem(): void
+    {
+        $this->indexPage->bulkDelete();
+    }
+
+    /**
+     * @Then I should see a single article in the list
      * @Then /^there should be (\d+) articles in the list$/
      */
     public function iShouldSeeArticlesInTheList(int $number = 1): void
