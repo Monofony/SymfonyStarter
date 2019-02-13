@@ -2,17 +2,17 @@ default:
     suites:
         ui_managing_articles:
             contexts:
-                - app.behat.context.hook.doctrine_orm
+                - App\Behat\Context\Hook\DoctrineORMContext
 
-                - app.behat.context.setup.article
-                - app.behat.context.setup.customer
-                - app.behat.context.setup.admin_security
+                - App\Behat\Context\Setup\ArticleContext
+                - App\Behat\Context\Setup\CustomerContext
+                - App\Behat\Context\Setup\AdminSecurityContext
 
-                - app.behat.context.transform.article
-                - app.behat.context.transform.customer
-                - app.behat.context.transform.shared_storage
+                - App\Behat\Context\Transform\ArticleContext
+                - App\Behat\Context\Transform\CustomerContext
+                - App\Behat\Context\Transform\SharedStorageContext
 
-                - app.behat.context.ui.backend.managing_articles
-                - app.behat.context.ui.backend.notification
+                - App\Behat\Context\Ui\Backend\ManagingArticlesContext
+                - App\Behat\Context\Ui\Backend\NotificationContext
             filters:
                 tags: "@managing_articles && @ui"
