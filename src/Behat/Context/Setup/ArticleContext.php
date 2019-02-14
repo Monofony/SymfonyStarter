@@ -13,7 +13,7 @@ namespace App\Behat\Context\Setup;
 
 use App\Behat\Service\SharedStorageInterface;
 use App\Entity\Article;
-use App\Fixture\Factory\ExampleFactoryInterface;
+use App\Fixture\Factory\ArticleExampleFactory;
 use Behat\Behat\Context\Context;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 
@@ -25,7 +25,7 @@ class ArticleContext implements Context
     private $sharedStorage;
 
     /**
-     * @var ExampleFactoryInterface
+     * @var ArticleExampleFactory
      */
     private $articleFactory;
 
@@ -35,13 +35,13 @@ class ArticleContext implements Context
     private $articleRepository;
 
     /**
-     * @param SharedStorageInterface  $sharedStorage
-     * @param ExampleFactoryInterface $articleFactory
-     * @param RepositoryInterface     $articleRepository
+     * @param SharedStorageInterface $sharedStorage
+     * @param ArticleExampleFactory  $articleFactory
+     * @param RepositoryInterface    $articleRepository
      */
     public function __construct(
         SharedStorageInterface $sharedStorage,
-        ExampleFactoryInterface $articleFactory,
+        ArticleExampleFactory $articleFactory,
         RepositoryInterface $articleRepository
     ) {
         $this->sharedStorage = $sharedStorage;
