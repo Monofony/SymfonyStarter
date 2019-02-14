@@ -21,7 +21,7 @@ class ArticleExampleFactory extends AbstractExampleFactory
     /**
      * @var FactoryInterface
      */
-    private $addressFactory;
+    private $articleFactory;
 
     /**
      * @var \Faker\Generator
@@ -34,11 +34,11 @@ class ArticleExampleFactory extends AbstractExampleFactory
     private $optionsResolver;
 
     /**
-     * @param FactoryInterface $addressFactory
+     * @param FactoryInterface $articleFactory
      */
-    public function __construct(FactoryInterface $addressFactory)
+    public function __construct(FactoryInterface $articleFactory)
     {
-        $this->addressFactory = $addressFactory;
+        $this->articleFactory = $articleFactory;
 
         $this->faker = \Faker\Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -65,7 +65,7 @@ class ArticleExampleFactory extends AbstractExampleFactory
         $options = $this->optionsResolver->resolve($options);
 
         /** @var Article $article */
-        $article = $this->addressFactory->createNew();
+        $article = $this->articleFactory->createNew();
         $article->setTitle($options['title']);
 
         return $article;
