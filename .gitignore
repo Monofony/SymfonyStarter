@@ -17,9 +17,10 @@
 *.DS_Store
 
 /etc/build/*
-!/etc/build/.gitkeep
+!/etc/build/.gitignore
 
 /behat.yml
+/phpspec.yml
 
 ###> symfony/framework-bundle ###
 /.env.*.local

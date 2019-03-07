@@ -1,0 +1,13 @@
+app:
+    ui:
+        articles: Articles
+        create_user: Create an user
+        edit_article: Edit article
+        forgotten_password: Forgotten password
+        legal_notices: Legal notices
+        manage_articles: Manage articles
+        new_article: New article
+        overview_of_your_website: Overview of you website
+        validate: Validate
+sylius:
+    ui: ~
